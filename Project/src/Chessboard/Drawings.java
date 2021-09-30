@@ -19,6 +19,9 @@ public class Drawings extends JPanel implements MouseListener
     private final int squareSide = 40;                                          
     private final Color colour1 = Color.lightGray;   
     private final Color colour2 = Color.gray;        
+    public int mouseX;
+    public int mouseY;
+    public Graphics g;
     
     
     public Drawings()
@@ -46,9 +49,9 @@ public class Drawings extends JPanel implements MouseListener
     }
 
 
-
   public void paintComponent(Graphics g)
   {
+	this.g= g;
     super.paintComponent(g);
     drawBoard(g);
     g.setColor(Color.BLACK);
@@ -148,17 +151,19 @@ public class Drawings extends JPanel implements MouseListener
     	g.drawString(bpaw, cols.get(i), bottomRow2);
     }
     
-    
-    
+    if(mouseX != 0)
+    {
+    	g.drawString(bpaw, mouseX, mouseY);
+    }
     
     
     
   }
   
+  @Override
   public void mouseClicked(MouseEvent ev)
   {
-	  System.out.println("clicked");
-	  
+
   }
   
   
@@ -166,7 +171,11 @@ public class Drawings extends JPanel implements MouseListener
   public void mousePressed(MouseEvent e) 
   {
 	// TODO Auto-generated method stub
-	
+	  //System.out.println("clicked");
+	  mouseX=e.getX();
+	  mouseY=e.getY();
+	  //System.out.println(mouseX + " " + mouseY);
+	  repaint();
   }
 
 
