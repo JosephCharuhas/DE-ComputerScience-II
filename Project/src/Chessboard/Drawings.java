@@ -1,13 +1,16 @@
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.EventListener;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Drawings extends JPanel
+public class Drawings extends JPanel implements MouseListener
 {
     private final int rows = 8;                      
     private final int cols = 8;
@@ -16,8 +19,16 @@ public class Drawings extends JPanel
     private final int squareSide = 40;                                          
     private final Color colour1 = Color.lightGray;   
     private final Color colour2 = Color.gray;        
+    
+    
+    public Drawings()
+    {
+    	addMouseListener(this);
+    }
 
-
+    
+    
+//makes chess board
 
     private void drawBoard(Graphics g) 
     {
@@ -33,7 +44,7 @@ public class Drawings extends JPanel
     		}
     	} 
     }
-	
+
 
 
   public void paintComponent(Graphics g)
@@ -139,16 +150,60 @@ public class Drawings extends JPanel
     
     
     
+    
+    
+    
+  }
+  
+  public void mouseClicked(MouseEvent ev)
+  {
+	  System.out.println("clicked");
+	  
+  }
+  
+  
+  @Override
+  public void mousePressed(MouseEvent e) 
+  {
+	// TODO Auto-generated method stub
+	
+  }
+
+
+
+  @Override
+  public void mouseReleased(MouseEvent e) 
+  {
+	// TODO Auto-generated method stub
+	
+  }
+
+
+
+  @Override
+  public void mouseEntered(MouseEvent e) 
+  {
+	// TODO Auto-generated method stub
+	
+  }
+
+
+
+  @Override
+  public void mouseExited(MouseEvent e) 
+  {
+	// TODO Auto-generated method stub
+	
   }
 
   public static void main(String[] args)
   {
-    JFrame window = new JFrame("Drawings");
-    window.setBounds(500, 500, 500, 500);
-    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    JPanel canvas = new Drawings();
-    canvas.setBackground(Color.WHITE);
-    window.getContentPane().add(canvas);
-    window.setVisible(true);
+	  JFrame window = new JFrame("Drawings");
+	  window.setBounds(500, 500, 500, 500);
+	  window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	  JPanel canvas = new Drawings();
+	  canvas.setBackground(Color.WHITE);
+	  window.getContentPane().add(canvas);
+  		window.setVisible(true);
   }
 }
