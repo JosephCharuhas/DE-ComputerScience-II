@@ -153,7 +153,8 @@ public class Drawings extends JPanel implements MouseListener
     
     if(mouseX != 0)
     {
-    	g.drawString(bpaw, mouseX, mouseY);
+    	g.drawString(bkin, mouseX, mouseY);
+    	
     }
     
     
