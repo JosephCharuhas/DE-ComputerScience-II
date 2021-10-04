@@ -187,7 +187,7 @@ public class Drawings extends JPanel implements MouseListener
     ArrayList<Integer> cols = new ArrayList<Integer>( Arrays.asList(15, 55, 95, 135, 175, 215, 255, 295) );
     
     
-    
+     
     
     int distanceApart = 40;
 
